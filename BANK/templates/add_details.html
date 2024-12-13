@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{fname}} {{lname}}</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .content{
+            height: 80%;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            flex-direction: column;
+        }
+        #name{
+            color: white;
+            text-shadow: 2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            0 0 2px black,
+                            0 0 2px black;
+
+        }
+        #val{
+            color: white;
+        }
+        .ins{
+            margin-top: 30px;
+            font-size: 15px;
+            color: white;
+            text-shadow: 2px 2px 2px black,
+                        2px 2px 2px black,
+                        2px 2px 2px black,
+                        0 0 2px black;
+            text-transform: capitalize;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <table>
+                <tr>
+                    <td id="name">Name</td>
+                    <td id="val">: {{fname}} {{lname}}</td>
+                </tr>
+                <tr>
+                    <td id="name">Password</td>
+                    <td id="val">: {{pas}}</td>
+                </tr>
+                <tr>
+                    <td id="name">Pin</td>
+                    <td id="val">: {{pin}}</td>
+                </tr>
+                <tr>
+                    <td id="name">Mobbile Number</td>
+                    <td id="val">: {{ph}}</td>
+                </tr>
+                <tr>
+                    <td id="name">Account Number</td>
+                    <td id="val">: {{acc}}</td>
+                </tr>
+                <tr>
+                    <td id="name">Balance</td>
+                    <td id="val">: {{bal}}</td>
+                </tr>
+            </table>
+            <div class="ins">
+                <hr>
+                <h2>Instructions : </h2>
+                <ul>
+                    <li>Thank You For Creating Your Account in Our Bank</li>
+                    <li>Remember Your Password and Pin And don't Share to Anyone</li>
+                    <li>Remember Your Account Number</li>
+                    <li>In Our Bank for any transactions like withdraw/deposit/balance check Account Number and Password and Pin are very Important</li>
+                </ul>
+            </div>
+        </div>
+        <a href="/add"><button>Back</button></a>
+    </div>
+</body>
+</html>

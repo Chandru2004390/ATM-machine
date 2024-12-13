@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: serif;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            height: 70%;
+        }
+        .content{
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+        }
+        form .content h1{
+            color: whitesmoke;
+            font-size: 40px;
+            text-shadow: 2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            0 0 2px black,
+                            0 0 2px black;
+        }
+        form .content #acc{
+            height: 35px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid gray;
+            outline: none;
+            background-color: #ffffff98;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px black,
+                            0 0 2px black,
+                            0 0 2px cyan,
+                            0 0 5px black,
+                            0 0 10px black;
+        }
+        .content #acc:hover{
+            box-shadow: inset 0 0 10px black,
+                            0 0 2px white,
+                            0 0 2px cyan,
+                            0 0 5px black,
+                            0 0 10px black;
+        }
+        .content h2{
+            color: white;
+            text-shadow: 0 0 2px cyan,
+                        0 0 2px black,
+                        0 0 5px black,
+                        0 0 5px black,
+                        0 0 1px cyan,
+                        0 0 10px black;
+        }
+        #pas{
+            width: 200px;
+            height: 35px;
+            font-size: 20px;
+            font-weight: bold;
+            outline: none;
+            padding: 2px;
+            padding-inline: 5px;
+            text-align: center;
+            box-shadow:inset 0 0 10px black;
+        }
+        #next-btn{
+            width: 100px;
+            padding: 2px;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            background: linear-gradient(-30deg,#ffffff33,#00ffff60,#ff00002f,#ffffff42);
+        }
+        #next-btn:hover{
+            box-shadow: 0 0 1px white,
+                        0 0 2px cyan,
+                        0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        #next-btn:active{
+            transform: translateY(2px);
+        }
+        .res{
+            color: red;
+            font-size: large;
+            text-shadow: 0 0 2px black,
+                        0 0 2px black,
+                        0 0 5px black,
+                        0 0 3px black;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="content">
+                    <h1>Enter Your Account Number</h1>
+                    <input id="acc" type="text" name="acc">
+                    <h2>Password</h2>
+                    <input id="pas" type="text" name="pas">
+                    <button type="submit" id="next-btn">Next</button>
+                </div>
+            </form>
+            <div class="res">{{res}}</div> 
+            <a href="{% url 'home' %}"><button style="padding: 2px; font-size: large; margin-top:20px; ">Back To Home</button></a> 
+    </div>
+</body>
+</html>

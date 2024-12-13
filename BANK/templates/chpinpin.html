@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chpinpin</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: serif;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s"
+            );
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .main h2{
+            color: #bbf08aa4;
+            text-shadow: 2px 2px 2px black,
+                        2px 2px 2px black,
+                        0 0 2px white,
+                        2px 2px 2px black,
+                        0 0 2px white,
+                        0 0 10px black;
+        }
+        
+        .content{
+            height: 60%;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        form input{
+            height: 30px;
+            width: 200px;
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            outline: none;
+            border: 1px solid black;
+            margin-block: 10px;
+            padding: 2px;
+            box-shadow: inset 0 0 10px,0 0 5px;
+            margin-left: 3px;
+        }
+        form label{
+            color: white;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            0 0 2px black,
+                            0 0 2px black;
+        }
+        form button{
+            cursor: pointer;
+            width: 150px;
+            margin: auto;
+            font-size: large;
+        }
+        .res{
+            color: white;
+            font-size: large;
+        }
+        .wr{
+            font-size: large;
+            color: #d40000;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>Change Pin with Old Pin</h2>
+        <div class="content">
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label for="acc">Account Number</label></td>
+                        <td>:<input type="text" maxlength="11" name="acc" value="{{acc}}" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="old_pin">Old Pin</label></td>
+                        <td>:<input type="text" name="old_pin" value="{{old_pin}}" required minlength="4" maxlength="4"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="new_pin">New Pin</label></td>
+                        <td>:<input type="text" name="new_pin" value="{{new_pin}}" required minlength="4" maxlength="4"></td>
+                    </tr>
+                </table>
+                <button type="submit">Change Pin</button>
+            </form>
+            <div class="res">{{res}}</div>
+            <div class="wr">{{seter}}</div>
+            <a id="back" href="/pc"><button style="padding: 2px; margin-top:20px; font-size: large;">Back</button></a>
+            <a href="{% url 'home' %}"><button style="padding: 2px; margin-top:20px; font-size: large;">Back To Home</button></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: serif;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content{
+            height: 80%;
+            width: 80%;            
+        }
+        .content form{           
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .content form button{
+            height: 40px;
+            width: 50%;
+            max-width: 250px;
+            font-size: 25px;
+            margin-top: 50px;
+            outline: none;
+            border: none;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+            box-shadow: 0 0 2px white,
+                        0 0 5px black,
+                        0 0 10px #6ebebe,
+                        0 0 10px white,
+                        0 0 2px black;
+            color: white;
+            text-shadow: 2px 2px 2px black,
+                        2px 2px 2px black,
+                        2px 2px 2px black,
+                        2px 2px 2px black,
+                        2px 2px 2px black,
+                        0 0 2px black,
+                        0 0 2px black;
+        }
+        button{
+            cursor: pointer;
+        }
+        .content form button:hover{
+            box-shadow: 0 0 1px white,
+            0 0 2px cyan,
+            0 0 5px white;
+            background-color: transparent;
+            text-shadow: none;
+        }
+        .content form button:active{
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="con" value="pin">Pin Change</button>
+                <button type="submit" name="con" value="pas">Password Change</button>
+            </form>
+            
+        </div>
+        <a href="{% url 'home' %}"><button style="padding: 2px; margin-top:20px; font-size: large;">Back To Home</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinc</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: serif;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .content{
+            height: 80%;
+            width: 60%;
+            display: flex;
+            align-items: center;
+
+            flex-direction: column;
+        }
+        button{
+            cursor: pointer;
+        }
+        #head{
+            color: #8fe93bc4;
+            text-shadow: 2px 2px 2px black,
+                        2px 2px 2px black,
+                        0 0 2px white,
+                        2px 2px 2px black,
+                        0 0 2px black,
+                        0 0 5px black,
+                        0 0 2px white,
+                        0 0 2px black;
+        }
+        .content .but{
+            display: flex;
+            flex-direction: column;
+        }
+        .content .but a button{
+            font-size: large;
+            height: 40px;
+            width: 300px;
+            margin-block: 20px;
+            border: none;
+            outline: none;
+            background: linear-gradient(-30deg,#00ffff75,#ff000081);
+            box-shadow: inset 0 0 10px white,
+                            0 0 2px black,
+                            0 0 2px black;
+        }
+        .content .but a button:hover{
+            color: white;
+            box-shadow: 0 0 1px white,
+                        0 0 2px cyan,
+                        0 0 5px white;
+            background: linear-gradient(-30deg,red,cyan);
+            text-shadow: 0 0 2px black,
+                        0 0 2px black,
+                        0 0 2px black,
+                        0 0 2px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2 id="head">Select Any One Option For Change Your Pin</h2>
+        <div class="content">
+            <div class="but">
+                <a href="{% url 'chpaspas' %}"><button>Password Change With Old Password</button></a>
+                <a href="{% url 'chpinpas' %}"><button>Password Change With Pin</button></a>
+                <a href="{% url 'chotppas' %}"><button>Password Change With OTP</button></a>
+
+            </div>
+            <div class="back">
+                <a id="back" href="/pc"><button style="padding: 2px; margin-top:20px; font-size: large;">Back</button></a>
+            </div>
+        </div>
+        <a href="{% url 'home' %}"><button style="padding: 2px; margin-top:20px; font-size: large;">Back To Home</button></a>
+    </div>
+</body>
+</html>

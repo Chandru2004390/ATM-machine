@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        *{
+            font-family: cursive;
+            padding: 0;
+            margin: 0;
+            box-sizing:border-box;
+        }
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .content{
+            border-radius: 10px;
+            box-shadow: 0 0 2px black,
+                        0 0 5px cyan,
+                        0 0 5px white,
+                        0 0 10px cyan,
+                        0 0 30px white;
+            height: 60%;
+            width: 300px;
+        }
+        .content:hover{
+            background: linear-gradient(to right,#00ffff11,#ffffff0e);
+            box-shadow: 0 0 2px black,
+                        0 0 5px cyan,
+                        0 0 5px white,
+                        0 0 10px cyan,
+                        0 0 40px white,
+                        0 0 100vh rgba(0, 0, 0, 0.445);
+        }
+        .content form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+        }
+        .content input{
+            height: 40px;
+            width: 200px;
+            border-radius: 20px;
+            outline: none;
+            border: 1px solid #00000073;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 0 2px black;
+            text-transform:capitalize;
+        }
+        
+        .content button{
+            width: 100px;
+            padding: 5px;
+            font-weight: bold;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+        }
+        .content button:hover{
+            box-shadow: 0 0 1px white,
+                        0 0 2px cyan,
+                        0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        .content button:active{
+            transform: translateY(2px);
+        }
+        .res{
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main h1{
+            padding-bottom: 20px;
+            text-shadow: 0 0 1px white,
+                        0 0 2px cyan,
+                        0 0 5px cyan,
+                        0 0 5px white,
+                        0 0 10px white;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 align="center">Admin Page</h1>
+        <div class="content">
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}               
+                    <input type="text" name="username" placeholder="User Name" required>               
+                    <input type="password" name="upassword" placeholder="Password" id="" required>
+                    <button>Submit</button>
+                    <div class="res">
+                        {{res}}
+                    </div>
+            </form>
+        </div>
+        <a href="{% url 'home' %}"><button style="padding: 2px; font-size: large;">Back To Home</button></a>
+    </div>
+</body>
+</html>

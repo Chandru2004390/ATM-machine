@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User</title>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family:serif;
+            font-size: large;
+        }
+        nav{
+            height: 70px;
+            background-color: #8080805b;
+            display: flex;
+            align-items: center;
+        }
+        nav ul{
+            display: flex;
+            /* justify-content: right; */
+            /* gap: 30px; */
+        }
+        nav ul li{
+            list-style: none;
+        }
+        nav ul li button{
+            padding: 7px;
+            min-width: 100px;
+            margin-left: 20px;
+            outline: none;
+            border: none;
+            background: linear-gradient(-30deg,#00ffff2f,#ff000036);
+            box-shadow: 0 0 2px white,
+                        0 0 5px black,
+                        0 0 2px cyan,
+                        0 0 2px black;
+        }
+        #b1{
+            border-radius: 20px 5px 5px 20px;
+        }
+        
+        #b2{
+            border-radius: 5px;
+        }
+        #b3{
+            border-radius: 5px 20px 20px 5px;
+        }
+        #b1:hover{
+            box-shadow: 0 0 1px white,
+                                0 0 2px cyan,
+                                0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        #b1:active{
+            transform: translateY(2px);
+        }
+        #b2:hover{
+            box-shadow: 0 0 1px white,
+                                0 0 2px cyan,
+                                0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        #b2:active{
+            transform: translateY(2px);
+        }
+        #b3:hover{
+            box-shadow: 0 0 1px white,
+                                0 0 2px cyan,
+                                0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        #b3:active{
+            transform: translateY(2px);
+        }
+        
+        .main{
+            height: 100vh;
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXAB5hR9iGQs7KPRpYPAF3Pvf5c-oAe3Hpg&s");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+        .content{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .del{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .del form label{
+            color: white;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            2px 2px 2px black,
+                            0 0 2px black,
+                            0 0 2px black;
+        }
+        .del form input{
+            height: 30px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid black;
+            outline: 1px solid gray;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: inset 0 0 5px;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        .del h2{
+            margin-block: 20px;
+            color: white;
+            font-size: 22px;
+            text-transform: capitalize;
+            text-shadow: 0 0 10px black,
+                        0 0 1px white,
+                        0 0 5px black,
+                        0 0 10px black;
+        }
+        .confirmation{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .confirmation button{
+            height: 25px;
+            width: 100px;
+            border: none;
+            outline: none;
+        }
+        .confirmation button:hover{
+            box-shadow: 0 0 1px white,
+                        0 0 2px cyan,
+                        0 0 5px white;
+            background-color: transparent;
+            background: linear-gradient(-40deg,#00ffff75,#ff0000a1);
+        }
+        .confirmation button:active{
+            transform: translateY(2px);
+        }
+        .res{
+            color: tomato;
+            padding-top: 10px;
+            height: 50px;
+            margin: auto;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <ul>
+                <li><a href="/tab"><button id="b1">Customer's Information</button></a></li>
+                <li><a href="/add"><button id="b2">Add User</button></a></li>
+                <li><a href="/dell"><button id="b3">Delete User</button></a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="del">
+                <h2>Delete</h2>
+                <form action="" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td><label for="">First Name</label></td>
+                            <td><input type="text" name="fname"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Last Name</label></td>
+                            <td><input type="text" name="lname"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Enter Account Nummber</label></td>
+                            <td><input type="text" name="acc" maxlength="11"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Enter Password</label></td>
+                            <td><input type="text" name="pas"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Enter Mobile Number</label></td>
+                            <td><input type="tel" name="ph" id=""></td>
+                        </tr>
+                    </table>
+                    <h2>Confirm You want to delete Your Account?</h2>
+                <div class="confirmation">
+                    <button type="submit" name="con" value="Yes">Yes</button>
+                    <button type="submit" name="con" value="No">No</button>
+                </div>
+                </form>
+                <div class="res">{{res}}</div>
+                <div class="ins">
+
+                </div>
+            </div>          
+        </div>
+        <a href="{% url 'home' %}"><button style="margin-top: 20px; padding: 2px; font-size: large;">Back To Home</button></a>
+    </div>
+</body>
+</html>
